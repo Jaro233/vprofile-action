@@ -83,8 +83,6 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Get kubeconfig file
-        id: getconfig
-        if: steps.apply.outcome == 'success'
         run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER }}
 
       # - name: Print config file
